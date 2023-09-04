@@ -33,31 +33,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>E-mail</th>
-                                <th>Phone</th>
-                                <th>Start</th>
-                                <th>End</th>
-                                <th>Created</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach($units as $unit): ?>
-                                <tr>
-                                    <td><?= $unit->name; ?></td>
-                                    <td><?= $unit->email; ?></td>
-                                    <td><?= $unit->phone; ?></td>
-                                    <td><?= $unit->starttime; ?></td>
-                                    <td><?= $unit->endtime; ?></td>
-                                    <td><?= $unit->created_at; ?></td>
-                                    
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                    <?= $units; ?>
                 </div>
             </div>
         </div>
