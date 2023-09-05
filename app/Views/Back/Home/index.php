@@ -10,19 +10,17 @@
 <?= $this->endSection(); ?>
 
 
-<?= $this->section('content'); ?>
+<?= $this->section('content'); ?> <!-- Begin Page Content -->
 
-<!-- Begin Page Content -->
-<div class="container-fluid">
+    <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title ?? 'Home do super Admin'; ?></h1>
-    <?= $user; ?>
+        <!-- Page Heading -->
+        <h1 class="h3 mb-4 text-gray-800"><?= $title ?? 'Home do super Admin'; ?></h1>
+        <?= $user; ?>
 
-</div>
-<!-- /.container-fluid -->
+    </div>
 
-<?= $this->endSection(); ?>
+<?= $this->endSection(); ?> <!-- End Page Content -->
 
 
 <?= $this->section('js'); ?>
