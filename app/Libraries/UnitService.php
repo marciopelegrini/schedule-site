@@ -41,8 +41,8 @@ class UnitService extends MyBaseService {
         $btnActions .= '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" 
                         aria-haspopup="true" aria-expanded="false">Actions</button>';
         $btnActions .= '<div class="dropdown-menu">';
-        $btnActions .= '<a class="dropdown-item" href="#">Action</a>';
-        $btnActions .= '<a class="dropdown-item" href="#">Action</a>';
+        $btnActions .= anchor(route_to('units.edit', $unit->id), 'Edit', ['class'=>'dropdown-item']);
+        $btnActions .= '<a class="" href="#">Action</a>';
         $btnActions .= '<a class="dropdown-item" href="#">Action</a>';
         $btnActions .= '</div></div>';
         
