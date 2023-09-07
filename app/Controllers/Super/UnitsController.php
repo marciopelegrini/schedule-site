@@ -12,9 +12,10 @@ class UnitsController extends BaseController
     private UnitService $unitService;
     private UnitModel $unitModel;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->unitService = Factories::class(UnitService::class);
-        $this->UnitModel = model(UnitModel::class);
+        $this->unitModel = model(UnitModel::class);
     }
 
     public function index()
@@ -27,12 +28,13 @@ class UnitsController extends BaseController
         return view('Back/Units/index', $data);
     }
 
-    public function edit(int $id) 
+    public function edit(int $id)
     {
-        $unit = $this->UnitModel->findOrFail($id);
+        $data = [
+            'title' => "Edit unity",
+            'unit' => $this->unitModel->findOrFail($id)
+        ];
 
-        dd($unit);
-        
         return view('Back/Units/edit', $data);
     }
 }

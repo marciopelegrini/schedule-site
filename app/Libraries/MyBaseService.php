@@ -5,11 +5,13 @@ namespace App\Libraries;
 use CodeIgniter\Config\Factories;
 use CodeIgniter\View\Table as HTMLTable;
 
-class MyBaseService{
+class MyBaseService
+{
     protected HTMLTable $htmlTable;
     protected const TEXT_FOR_NO_DATA = '<div class="text-info">There are not data to view.</div>';
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->htmlTable = Factories::class(HTMLTable::class);
 
         $this->htmlTable->setTemplate([

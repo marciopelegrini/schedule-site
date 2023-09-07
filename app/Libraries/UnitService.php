@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Libraries;
+
 use App\Models\UnitModel;
 use App\Entities\Unit;
 
-class UnitService extends MyBaseService {
+class UnitService extends MyBaseService
+{
     /**
      * render html Table
      */
@@ -12,7 +14,7 @@ class UnitService extends MyBaseService {
     {
         $units = model(UnitModel::class)->orderBy('name', 'ASC')->findAll();
 
-        if(empty($units)) {
+        if (empty($units)) {
             return self::TEXT_FOR_NO_DATA;
         }
 
@@ -41,11 +43,11 @@ class UnitService extends MyBaseService {
         $btnActions .= '<button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" 
                         aria-haspopup="true" aria-expanded="false">Actions</button>';
         $btnActions .= '<div class="dropdown-menu">';
-        $btnActions .= anchor(route_to('units.edit', $unit->id), 'Edit', ['class'=>'dropdown-item']);
+        $btnActions .= anchor(route_to('units.edit', $unit->id), 'Edit', ['class' => 'dropdown-item']);
         $btnActions .= '<a class="" href="#">Action</a>';
         $btnActions .= '<a class="dropdown-item" href="#">Action</a>';
         $btnActions .= '</div></div>';
-        
+
         return $btnActions;
     }
 }

@@ -9,15 +9,14 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index', ['as' => 'home']);
 
-$routes->group('super', static function($routes){
+$routes->group('super', static function ($routes) {
     //home
-    $routes->get("/",[HomeController::class,"index"], ['as' =>'super.admin']);
+    $routes->get("/", [HomeController::class, "index"], ['as' => 'super.admin']);
 
     //Units
-    $routes->group('units', static function($routes){
-        $routes->get('/', [UnitsController::class,"index"], ["as"=> "units"]);
-        $routes->get('edit/(:num)', [UnitsController::class,"edit/$1"], ["as"=> "units.edit"]);
+    $routes->group('units', static function ($routes) {
+        $routes->get('/', [UnitsController::class, "index"], ["as" => "units"]);
+        $routes->get('edit/(:num)', [UnitsController::class, "edit/$1"], ["as" => "units.edit"]);
 
     });
 });
-
