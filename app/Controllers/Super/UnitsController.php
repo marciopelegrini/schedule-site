@@ -32,7 +32,8 @@ class UnitsController extends BaseController
     {
         $data = [
             'title' => "Edit unity",
-            'unit' => $this->unitModel->findOrFail($id)
+            'unit' => $unit = $this->unitModel->findOrFail($id),
+            'timesInterval' => $this->unitService->renderTimesInterval($unit->servicetime)
         ];
 
         return view('Back/Units/edit', $data);

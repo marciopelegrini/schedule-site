@@ -24,24 +24,62 @@
         </div>
         <div class="card-body">
 
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                        else.</small>
+            <?= form_open(route_to('units.update', $unit->id), hidden:['_method' => 'PUT']); ?>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" value="<?= old('name', $unit->name); ?>" id="name" name="name" aria-describedby="nameHelp" placeholder="Enter the unit name">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" value="<?= old('phone', $unit->phone); ?>" id="phone" name="phone" aria-describedby="phoneHelp" placeholder="Enter the unit phone">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="coordinator">Coordinator</label>
+                        <input type="text" class="form-control" value="<?= old('coordinator', $unit->coordinator); ?>" id="coordinator" name="coordinator" aria-describedby="coordinatorHelp" 
+                        placeholder="Enter the unit coordinator">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="starttime">Start Time</label>
+                        <input type="time" class="form-control" value="<?= old('starttime', $unit->starttime); ?>" id="starttime" name="starttime" aria-describedby="starttimeHelp" placeholder="Enter the unit Start Time">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="endtime">End Time</label>
+                        <input type="time" class="form-control" value="<?= old('endtime', $unit->endtime); ?>" id="endtime" name="endtime" aria-describedby="endtimeHelp" placeholder="Enter the unit End Time">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="servicetime">Service Time</label>
+                        <?= $timesInterval; ?>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" value="<?= old('email', $unit->email); ?>" id="email"
+                            name="email" aria-describedby="emailHelp" placeholder="Enter the unit Email">
+                    </div>
+
+                    <div class="form-group col-md-8">
+                        <label for="address">Adress</label>
+                        <input type="email" class="form-control" value="<?= old('address', $unit->address); ?>" id="address"
+                            name="address" aria-describedby="addressHelp" placeholder="Enter the unit address">
+                    </div>
+
+                    <div class="col-md-12 mb-3 mt-4">
+                        <div class="custom-control custom-checkbox">
+                            <?= form_hidden('active', 0); ?>
+                            <input type="checkbox" name="active" value="1" class="custom-control-input" id="active"
+                            <?php if($unit->active): ?> checked <?php endif; ?>>
+                            <label class="custom-control-label" for="active">Record is active</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                <button type="submit" class="btn btn-primary">Save</button>
+            <?= form_close() ?>
 
         </div>
     </div>

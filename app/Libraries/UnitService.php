@@ -7,6 +7,12 @@ use App\Entities\Unit;
 
 class UnitService extends MyBaseService
 {
+    private static array $serviceTime = [
+        '10 minutes' => '10 minutes',
+        '15 minutes' => '15 minutes',
+        '30 minutes' => '30 minutes',
+        '1 hour' => '1 hour',
+    ];
     /**
      * render html Table
      */
@@ -35,6 +41,19 @@ class UnitService extends MyBaseService
         }
 
         return $this->htmlTable->generate();
+    }
+
+    public function renderTimesInterval(?string $serviceTime = null): string
+    {
+        $options = [];
+        $options[''] = '----Choose interval-------';
+
+        foreach (self::$serviceTime as $key => $time) {
+            $options[$key] = $time;
+        }
+
+        return form_dropdown(data: 'servicetime', options: $options, selected: old('servicetime', $serviceTime), extra: ['class' => 'form-control']);
+
     }
 
     private function renderBtnActions(Unit $unit): string
